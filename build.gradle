@@ -9,7 +9,7 @@ plugins {
 def groupName = "io.github.sasuked.cashplugin";
 
 group = groupName
-version = '1.0.3-SNAPSHOT'
+version = '1.0.4-SNAPSHOT'
 
 sourceCompatibility = '1.8'
 targetCompatibility = '1.8'
@@ -17,9 +17,6 @@ targetCompatibility = '1.8'
 repositories {
     mavenCentral()
     mavenLocal()
-
-    maven { url 'https://repo.extendedclip.com/content/repositories/placeholderapi/' }
-    maven { url 'https://jitpack.io' }
 
     maven { url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
     maven { url 'https://oss.sonatype.org/content/groups/public/' }
