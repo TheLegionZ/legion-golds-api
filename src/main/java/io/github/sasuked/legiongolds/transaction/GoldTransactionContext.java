@@ -6,52 +6,39 @@ import lombok.Getter;
 public class GoldTransactionContext {
 
 	private String playerName;
-	private Double cashAmountAtMoment;
-	private Long transactionTime;
 	private GoldTransactionType transactionType;
-	private Double receivedAmount;
-	private Double amountSet;
-	private Double withdrawAmount;
-	private String commandSenderName;
+	private double transactionAmount;
+	private String commandSender;
 	private String customDescription;
+
+	public static GoldTransactionContext create(String playerName, double transactionAmount, GoldTransactionType type) {
+		return new GoldTransactionContext(playerName, transactionAmount, type);
+	}
+
+	public GoldTransactionContext(String playerName, double transactionAmount, GoldTransactionType type) {
+		this.playerName = playerName;
+		this.transactionAmount = transactionAmount;
+		this.transactionType = type;
+	}
 
 	public GoldTransactionContext playerName(String playerName) {
 		this.playerName = playerName;
 		return this;
 	}
 
-	public GoldTransactionContext cashAmountAtMoment(double cashAmountAtMoment) {
-		this.cashAmountAtMoment = cashAmountAtMoment;
-		return this;
-	}
-
-	public GoldTransactionContext transactionTime(long transactionTime) {
-		this.transactionTime = transactionTime;
-		return this;
-	}
 
 	public GoldTransactionContext transactionType(GoldTransactionType transactionType) {
 		this.transactionType = transactionType;
 		return this;
 	}
 
-	public GoldTransactionContext receivedAmount(double receivedAmount) {
-		this.receivedAmount = receivedAmount;
+	public GoldTransactionContext commandSender(String commandSender) {
+		this.commandSender = commandSender;
 		return this;
 	}
 
-	public GoldTransactionContext commandSenderName(String commandSenderName) {
-		this.commandSenderName = commandSenderName;
-		return this;
-	}
-
-	public GoldTransactionContext amountSet(double amountSet) {
-		this.amountSet = amountSet;
-		return this;
-	}
-
-	public GoldTransactionContext withdrawAmount(double withdrawAmount) {
-		this.withdrawAmount = withdrawAmount;
+	public GoldTransactionContext transactionAmount(double transactionAmount) {
+		this.transactionAmount = transactionAmount;
 		return this;
 	}
 
