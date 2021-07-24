@@ -1,62 +1,62 @@
 package io.github.sasuked.legiongolds.transaction;
 
-import java.util.Map;
-import java.util.WeakHashMap;
+import lombok.Getter;
 
+@Getter
 public class GoldTransactionContext {
 
-	private Map<String, Object> context;
-
-	public GoldTransactionContext(Map<String, Object> context) {
-		this.context = context;
-	}
+	private String playerName;
+	private Double cashAmountAtMoment;
+	private Long transactionTime;
+	private GoldTransactionType transactionType;
+	private Double receivedAmount;
+	private Double amountSet;
+	private Double withdrawAmount;
+	private String commandSenderName;
+	private String customDescription;
 
 	public GoldTransactionContext playerName(String playerName) {
-		return put("playerName", playerName);
-	}
-
-	public GoldTransactionContext cashAmountAtMoment(double cashAmountAtMoment) {
-		return put("cashAmountAtMoment", cashAmountAtMoment);
-	}
-
-	public GoldTransactionContext transactionTime(long transactionTime) {
-		return put("transactionTime", transactionTime);
-	}
-
-	public GoldTransactionContext transactionType(GoldTransactionType type) {
-		return put("transactionType", type.ordinal());
-	}
-
-	public GoldTransactionContext receivedAmount(double receivedAmount) {
-		return put("receivedAmount", receivedAmount);
-	}
-
-	public GoldTransactionContext commandSenderName(String commandSenderName) {
-		return put("commandSenderName", commandSenderName);
-	}
-
-	public GoldTransactionContext amountSet(double amountSet) {
-		return put("amountSet", amountSet);
-	}
-
-	public GoldTransactionContext withdrawAmount(double withdrawAmount) {
-		return put("withdrawAmount", withdrawAmount);
-	}
-
-	public GoldTransactionContext customDescription(String customDescription) {
-		return put("customDescription", customDescription);
-	}
-
-	private GoldTransactionContext put(String key, Object value) {
-		context.put(key, value);
+		this.playerName = playerName;
 		return this;
 	}
 
-	public GoldTransactionContext() {
-		this(new WeakHashMap<>());
+	public GoldTransactionContext cashAmountAtMoment(double cashAmountAtMoment) {
+		this.cashAmountAtMoment = cashAmountAtMoment;
+		return this;
 	}
 
-	public Map<String, Object> build() {
-		return context;
+	public GoldTransactionContext transactionTime(long transactionTime) {
+		this.transactionTime = transactionTime;
+		return this;
+	}
+
+	public GoldTransactionContext transactionType(GoldTransactionType transactionType) {
+		this.transactionType = transactionType;
+		return this;
+	}
+
+	public GoldTransactionContext receivedAmount(double receivedAmount) {
+		this.receivedAmount = receivedAmount;
+		return this;
+	}
+
+	public GoldTransactionContext commandSenderName(String commandSenderName) {
+		this.commandSenderName = commandSenderName;
+		return this;
+	}
+
+	public GoldTransactionContext amountSet(double amountSet) {
+		this.amountSet = amountSet;
+		return this;
+	}
+
+	public GoldTransactionContext withdrawAmount(double withdrawAmount) {
+		this.withdrawAmount = withdrawAmount;
+		return this;
+	}
+
+	public GoldTransactionContext customDescription(String customDescription) {
+		this.customDescription = customDescription;
+		return this;
 	}
 }
